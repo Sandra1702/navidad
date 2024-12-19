@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="hero" style="background-image: url('imagenes/navidad.jpg');">
+        <h1>Contacto</h1>
+        <p>¿Tienes alguna idea o quieres compartir tu experiencia? Escríbenos.</p>
+    </header>
+    <main class="section">
+        <h2>Formulario de Contacto</h2>
+        <form>
+            <label for="name">Nombre:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Mensaje:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">Volver a la Página Principal</a>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2024 Tiempo de Cuidar y Crear. Todos los derechos reservados.</p>
+    </footer>
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <p id="modalMessage">¡Gracias por tu mensaje!</p>
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        // Referencia al formulario y al modal
+        const form = document.querySelector("form");
+        const modal = document.getElementById("messageModal");
+        const modalMessage = document.getElementById("modalMessage");
+    
+        // Manejar el envío del formulario
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Evitar el envío del formulario
+    
+            // Obtener los valores del formulario
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+    
+            // Personalizar el mensaje del modal
+            modalMessage.textContent = `¡Gracias, ${name}! Hemos recibido tu mensaje: "${message}"`;
+    
+            // Mostrar el modal
+            modal.style.display = "flex";
+        });
+    
+        // Función para cerrar el modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    </script>
+
+    <script>
+        document.addEventListener("click", function (e) {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.innerHTML = "❄";
+    
+            // Posición inicial aleatoria cerca del cursor
+            snowflake.style.left = `${e.clientX}px`;
+            snowflake.style.top = `${e.clientY}px`;
+    
+            // Tamaño aleatorio
+            const size = Math.random() * 10 + 10; // Entre 10px y 20px
+            snowflake.style.fontSize = `${size}px`;
+    
+            // Duración aleatoria
+            const duration = Math.random() * 3 + 2; // Entre 2s y 5s
+            snowflake.style.animationDuration = `${duration}s`;
+    
+            // Desplazamiento horizontal aleatorio
+            const offset = Math.random() * 50 - 25; // Entre -25px y 25px
+            snowflake.style.transform = `translateX(${offset}px)`;
+    
+            // Agregar el copo al documento
+            document.body.appendChild(snowflake);
+    
+            // Eliminar el copo después de la animación
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        });
+    </script>
+
+    
+</body>
+</html>
+
+

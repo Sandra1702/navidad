@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="hero" style="background-image: url('imagenes/navidad.jpg');">
+        <img src="imagenes/clase.jpg" alt="Foto de nuestra clase" class="class-photo">
+        <h1>¡Bienvenidos a la Clase de Informática!</h1>
+        <p>Este es nuestro espacio para aprender, crear y compartir conocimientos sobre tecnología.</p>
+    </header>
+
+    <!-- Mensaje Especial -->
+    <div class="message">
+        <h2>Mensaje Especial de la Clase</h2>
+        <p>En nuestra clase de informática, cada día es una nueva oportunidad para innovar, resolver problemas y aprender algo nuevo. ¡Sigamos creciendo juntos!</p>
+    </div>
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">Volver a la Página Principal</a>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 Tiempo de Cuidar y Crear. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("click", function (e) {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.innerHTML = "❄";
+    
+            // Posición inicial aleatoria cerca del cursor
+            snowflake.style.left = `${e.clientX}px`;
+            snowflake.style.top = `${e.clientY}px`;
+    
+            // Tamaño aleatorio
+            const size = Math.random() * 10 + 10; // Entre 10px y 20px
+            snowflake.style.fontSize = `${size}px`;
+    
+            // Duración aleatoria
+            const duration = Math.random() * 3 + 2; // Entre 2s y 5s
+            snowflake.style.animationDuration = `${duration}s`;
+    
+            // Desplazamiento horizontal aleatorio
+            const offset = Math.random() * 50 - 25; // Entre -25px y 25px
+            snowflake.style.transform = `translateX(${offset}px)`;
+    
+            // Agregar el copo al documento
+            document.body.appendChild(snowflake);
+    
+            // Eliminar el copo después de la animación
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        });
+    </script>
+
+</body>
+</html>
